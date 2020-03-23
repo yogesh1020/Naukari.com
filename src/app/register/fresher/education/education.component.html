@@ -1,0 +1,174 @@
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+         <form [formGroup]="educationFormGroup">
+            
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>Highest Qualification</td>
+                        <td> 
+                            <select formControlName="qualification">
+                            <option >Phd</option>
+                            <option >Masters/Post-Graduation</option>
+                            <option >Graduation/Diploma</option>
+                            <option >12th</option>
+                            <option >10th</option>
+                        </select>
+                        <div *ngIf="educationFormGroup.controls.qualification.errors && educationFormGroup.controls.qualification.touched">
+                            <small id="error">qualification cannot be left blank</small>
+                        </div>
+                        </td>
+                     </tr>
+                        <tr>
+                            <td>Course</td>
+                            <td>
+                                <select formControlName="course" >
+                                    <option>BA</option>
+                                    <option>BE</option>
+                                    <option>B.Arch</option>
+                                    <option>B.com</option>
+                                </select>
+                                <div *ngIf="educationFormGroup.controls.course.errors && educationFormGroup.controls.course.touched">
+                                    <small id="error">course cannot be left blank</small>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Specialization</td>
+                            <td> 
+                                <select formControlName="specialization">
+                                <option >BA</option>
+                                <option >BE</option>
+                                <option >B.Arch</option>
+                                <option >B.com</option>
+                            </select>
+                            <div *ngIf="educationFormGroup.controls.specialization.errors && educationFormGroup.controls.specialization.touched">
+                                <small id="error">specialization cannot be left blank</small>
+                            </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> University/College</td>
+                            <td><input type="text" placeholder="Institute Name" formControlName="university" >
+                                <div *ngIf="educationFormGroup.controls.university.errors && educationFormGroup.controls.university.touched">
+                                    <small id="error">university cannot be left blank</small>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Course Type</td>
+                            <td>  
+                                <input type="radio" name="course"><small>Full Time</small>
+                                <input type="radio" name="course"><small>Part Time</small>
+                                <input type="radio" name="course"><small>Correspondence</small> 
+                            </td>
+                        </tr>
+                        <tr>   
+                            <td>Passing Year</td>
+                            <td>
+                                <select formControlName="passingYear">
+                                    <option>2020</option>
+                                    <option>2019</option>
+                                    <option>2018</option>
+                                    <option>2017</option>
+                                </select>
+                                <div *ngIf="educationFormGroup.controls.passingYear.errors && educationFormGroup.controls.passingYear.touched">
+                                    <small id="error">passingYear cannot be left blank</small>
+                                </div>
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td><div formArrayName="newEducation" *ngFor="let e of educationFormGroup.controls.newEducation?.value; let i = index">
+                             <div [formGroupName]="i">
+                                Qualification
+                             </div>
+                             </div></td>
+                            <td>
+                               <div formArrayName="newEducation" *ngFor="let e of educationFormGroup.controls.newEducation?.value; let i = index">
+                                 <div [formGroupName]="i">
+                                 <input type="text"  formControlName="qualification" placeholder="Qualification">
+                                 </div>
+                                 </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div formArrayName="newEducation" *ngFor="let e of educationFormGroup.controls.newEducation?.value; let i = index">
+                             <div [formGroupName]="i">
+                                Course
+                             </div>
+                             </div></td>
+                            <td>
+                               <div formArrayName="newEducation" *ngFor="let e of educationFormGroup.controls.newEducation?.value; let i = index">
+                                 <div [formGroupName]="i">
+                                 <input type="text"  formControlName="course" placeholder="Course">
+                                 </div>
+                                 </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div formArrayName="newEducation" *ngFor="let e of educationFormGroup.controls.newEducation?.value; let i = index">
+                             <div [formGroupName]="i">
+                                Specialization
+                             </div>
+                             </div></td>
+                            <td>
+                               <div formArrayName="newEducation" *ngFor="let e of educationFormGroup.controls.newEducation?.value; let i = index">
+                                 <div [formGroupName]="i">
+                                 <input type="text"  formControlName="specialization" placeholder="Specialization">
+                                 </div>
+                                 </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div formArrayName="newEducation" *ngFor="let e of educationFormGroup.controls.newEducation?.value; let i = index">
+                             <div [formGroupName]="i">
+                                University/College
+                             </div>
+                             </div></td>
+                            <td>
+                               <div formArrayName="newEducation" *ngFor="let e of educationFormGroup.controls.newEducation?.value; let i = index">
+                                 <div [formGroupName]="i">
+                                 <input type="text"  formControlName="college" placeholder="College">
+                                 </div>
+                                 </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div formArrayName="newEducation" *ngFor="let e of educationFormGroup.controls.newEducation?.value; let i = index">
+                             <div [formGroupName]="i">
+                                Passing Year
+                             </div>
+                             </div></td>
+                            <td>
+                               <div formArrayName="newEducation" *ngFor="let e of educationFormGroup.controls.newEducation?.value; let i = index">
+                                 <div [formGroupName]="i">
+                                 <input type="text"  formControlName="year" placeholder="Passing Year">
+                                 </div>
+                                 </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button class="btn btn-secondary" (click)="onAdd()" >+ Add More education </button> </td>
+                        </tr>
+                        <tr>
+                            <td>Skills</td>
+                            <td> <input type="text" placeholder="Enter your areas of expertise" formControlName="skill" >
+                                <div *ngIf="educationFormGroup.controls.skill.errors && educationFormGroup.controls.skill.touched">
+                                    <small id="error">Skills cannot be left blank</small>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-primary">Continue</button>
+            
+        </form>
+</body>
+</html>

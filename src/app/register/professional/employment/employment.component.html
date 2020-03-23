@@ -1,0 +1,307 @@
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form [formGroup]="empoloymentFormGroup">
+            <div>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>Current Designation</td>
+                        <td><input type="text" placeholder="Your job title" formControlName="job">
+                            <div *ngIf="empoloymentFormGroup.controls.job.errors && empoloymentFormGroup.controls.job.touched">
+                                <small id="error">email Id cannot be left blank</small>
+                            </div>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>Current Company</td>
+                            <td><input type="text" placeholder="Where you are currently working" formControlName="currentCompany">
+                                <div *ngIf="empoloymentFormGroup.controls.currentCompany.errors && empoloymentFormGroup.controls.currentCompany.touched">
+                                    <small id="error">email Id cannot be left blank</small>
+                                </div>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Annual Salary</td>
+                            <td>
+                                <input type="radio" name="money"> <small>Rs.</small>
+                                <input type="radio"  name="money"> <small>USD</small>
+                                <select formControlName="salary">
+                                    <option  hidden selected  >Select</option>
+                                    <option >0</option>
+                                    <option >1</option>
+                                    <option >2 </option>
+                                    <option >3</option>
+                                </select>
+                                <small>LaKhs</small>
+                                <select formControlName="salary">
+                                    <option  hidden selected >Select</option>
+                                    <option >0</option>
+                                    <option >1</option>
+                                    <option >2 </option>
+                                    <option >3</option>
+                                </select>
+                                <small>Thousand</small>
+                                <div *ngIf="empoloymentFormGroup.controls.salary.errors && empoloymentFormGroup.controls.salary.touched">
+                                    <small id="error">email Id cannot be left blank</small>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Working since</td>
+                            <td>
+                                <select  formControlName="workTime">
+                                    <option  hidden selected>Year</option>
+                                    <option >2020</option>
+                                    <option >2019</option>
+                                    <option >2018</option>
+                                    <option >2017</option>
+                                </select>
+                                <select  formControlName="workTime">
+                                    <option  hidden selected >Month</option>
+                                    <option >Jan</option>
+                                    <option >Feb</option>
+                                    <option >Mar</option>
+                                    <option >Apr</option>
+                                </select> <small>To</small>
+                                <select  formControlName="workTime">
+                                    <option  hidden selected >Year</option>
+                                    <option >Present</option>
+                                    <option >2020</option>
+                                    <option >2019</option>
+                                    <option >2018</option>
+                                    <option >2017</option>
+                                </select>
+                                <div *ngIf="empoloymentFormGroup.controls.workTime.errors && empoloymentFormGroup.controls.workTime.touched">
+                                    <small id="error">email Id cannot be left blank</small>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>   
+                            <td >Current location</td>
+                            <td ><input type="text" placeholder="" formControlName="location">
+                                <div *ngIf="empoloymentFormGroup.controls.location.errors && empoloymentFormGroup.controls.location.touched">
+                                    <small id="error">email Id cannot be left blank</small>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><Input type="text" placeholder="Enter your city name Here"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td> <input type="checkbox"> <small>Outside India</small> </td>
+                        </tr>
+                        <tr>
+                            <td>Duration of Notice Period</td>
+                            <td>
+                            <select formControlName="notice" >
+                                <option value="" hidden selected> select duration of your Notice Period </option>
+                                <option value="">15 Days Or Less</option>
+                                <option value="">1 Months</option>
+                                <option value="">2 Months</option>
+                                <option value="">3 Months</option>
+                                <option value="">More then 3 Months</option>
+                            </select> 
+                            <div *ngIf="empoloymentFormGroup.controls.notice.errors && empoloymentFormGroup.controls.notice.touched">
+                                <small id="error">email Id cannot be left blank</small>
+                            </div>
+                            <input type="checkbox"><small>Serving notice period</small>
+                             </td>
+                        </tr>
+                        <tr>
+                            <td>Last Working Day</td>
+                                <td>
+                                    <select formControlName="lastWorking">
+                                        <option value="" hidden selected>Year</option>
+                                        <option value="">2020</option>
+                                        <option value="">2019</option>
+                                        <option value="">2018</option>
+                                        <option value="">2017</option>
+                                    </select><small>Year</small>
+                                    <select formControlName="lastWorking">
+                                        <option value="" hidden selected>Month</option>
+                                        <option value="">Jan</option>
+                                        <option value="">Feb</option>
+                                        <option value="">Mar</option>
+                                        <option value="">Apr</option>
+                                    </select> <small>Month</small>
+                                    <select formControlName="lastWorking">
+                                        <option value="" hidden selected>Date</option>
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                        <option value="">3</option>
+                                        <option value="">4</option>
+                                        <option value="">5</option>
+                                    </select><small>Date</small>
+                                    <div *ngIf="empoloymentFormGroup.controls.lastWorking.errors && empoloymentFormGroup.controls.lastWorking.touched">
+                                        <small id="error">email Id cannot be left blank</small>
+                                    </div>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td>New Offered Salary</td>
+                            <td>
+                                <input type="radio" name="money"> <small>Rs.</small>
+                                <input type="radio"  name="money"> <small>USD</small>
+                                <select>
+                                    <option value="" hidden selected>Select</option>
+                                    <option value="">0</option>
+                                    <option value="">1</option>
+                                    <option value="">2 </option>
+                                    <option value="">3</option>
+                                </select>
+                                <small>LaKhs</small>
+                                <select>
+                                    <option value="">0</option>
+                                    <option value="">1</option>
+                                    <option value="">2 </option>
+                                    <option value="">3</option>
+                                </select>
+                                <small>Thousand</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Offered Designation</th>
+                            <th>
+                               <input type="text" placeholder="New designation Offered">
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>New company</th>
+                            <th>
+                               <input type="text" placeholder="Name of the new Organization">
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Skills</th>
+                            <th>
+                               <input type="text" placeholder="Enter your Area of Expertires" formControlName="skill">
+                               <div *ngIf="empoloymentFormGroup.controls.skill.errors && empoloymentFormGroup.controls.skill.touched">
+                                <small id="error">email Id cannot be left blank</small>
+                            </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>Industry</td>
+                            <td>
+                            <select>
+                                <option value="">Accounting/Finance</option>
+                                <option value="">It</option>
+                                <option value="">Auto</option>
+                            </select> 
+                             </td>
+                        </tr>
+                        <tr>
+                            <td>Functional Area</td>
+                            <td>
+                            <select>
+                                <option value="">Accounts</option>
+                                <option value="">Finance</option>
+                                <option value="">Auto</option>
+                            </select> 
+                             </td>
+                        </tr>
+                        <tr>
+                            <td>Role</td>
+                            <td>
+                            <select>
+                                <option value="">DSA/Company Rep.</option>
+                                <option value="">independent Rep.</option>
+                            </select> 
+                             </td>
+                        </tr>
+                       <tr>
+                           <td><div formArrayName="newEmployment" *ngFor="let e of empoloymentFormGroup.controls.newEmployment?.value; let i = index">
+                            <div [formGroupName]="i">
+                                Designation
+                            </div>
+                            </div></td>
+                           <td>
+                              <div formArrayName="newEmployment" *ngFor="let e of empoloymentFormGroup.controls.newEmployment?.value; let i = index">
+                                <div [formGroupName]="i">
+                                <input type="text"  formControlName="employment" placeholder="Employment">
+                                </div>
+                                </div>
+                           </td>
+                       </tr>
+                       <tr>
+                        <td><div formArrayName="newEmployment" *ngFor="let e of empoloymentFormGroup.controls.newEmployment?.value; let i = index">
+                         <div [formGroupName]="i">
+                            Company
+                         </div>
+                         </div></td>
+                        <td>
+                           <div formArrayName="newEmployment" *ngFor="let e of empoloymentFormGroup.controls.newEmployment?.value; let i = index">
+                             <div [formGroupName]="i">
+                             <input type="text"  formControlName="company" placeholder="Name of The Company">
+                             </div>
+                             </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><div formArrayName="newEmployment" *ngFor="let e of empoloymentFormGroup.controls.newEmployment?.value; let i = index">
+                         <div [formGroupName]="i">
+                            Duration
+                         </div>
+                         </div></td>
+                        <td>
+                           <div formArrayName="newEmployment" *ngFor="let e of empoloymentFormGroup.controls.newEmployment?.value; let i = index">
+                             <div [formGroupName]="i">
+                                <select formControlName="duration">
+                                    <option value="" hidden selected>Year</option>
+                                    <option value="">2020</option>
+                                    <option value="">2019</option>
+                                    <option value="">2018</option>
+                                    <option value="">2017</option>
+                                </select>
+                                <select formControlName="duration">
+                                    <option value="" hidden selected>Month</option>
+                                    <option value="">Jan</option>
+                                    <option value="">Feb</option>
+                                    <option value="">Mar</option>
+                                    <option value="">Apr</option>
+                                </select>
+                                <small>To</small>
+                                <select formControlName="duration">
+                                    <option value="" hidden selected>Year</option>
+                                    <option value="">2020</option>
+                                    <option value="">2019</option>
+                                    <option value="">2018</option>
+                                    <option value="">2017</option>
+                                </select>
+                                <select formControlName="duration">
+                                    <option value="" hidden selected>Month</option>
+                                    <option value="">Jan</option>
+                                    <option value="">Feb</option>
+                                    <option value="">Mar</option>
+                                    <option value="">Apr</option>
+                                </select>
+                             </div>
+                             </div>
+                        </td>
+                    </tr>
+
+                        <tr>
+
+                            <td></td>
+                            <td> <button class="btn btn-primary" (click)="onAdd()"   >+Add another employment</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-primary" (click)="submit()">Continue</button>
+            </div>
+        </form>
+    </div>
+</body>
+

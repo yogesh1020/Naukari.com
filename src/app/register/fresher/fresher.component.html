@@ -1,0 +1,106 @@
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form [formGroup]="fresherFormGroup">
+            <div>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>Name</td>
+                        <td><input type="text" placeholder="Enter Your full name" formControlName="name">
+                            <div *ngIf="fresherFormGroup.controls.name.errors && fresherFormGroup.controls.name.touched">
+                                <small id="error">Name cannot be left blank</small>
+                            </div>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>Email ID</td>
+                            <td><input type="text" placeholder="Enter Your active Email Id to recive relevant Jobs" formControlName="emailId">
+                                <div *ngIf="fresherFormGroup.controls.emailId.errors && fresherFormGroup.controls.emailId.touched">
+                                    <small id="error">email Id is not valid</small>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Create Password</td>
+                            <td> <input type="text" placeholder=" Minimun 6 characters" formControlName="password">
+                                <div *ngIf="fresherFormGroup.controls.password.errors && fresherFormGroup.controls.password.touched">
+                                    <small id="error">Password cannot be left blank</small>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Mobile number</td>
+                            <td><input type="text" placeholder="Where recruter can contact you" formControlName="mobile">
+                                <div *ngIf="fresherFormGroup.controls.mobile.errors && fresherFormGroup.controls.mobile.touched">
+                                    <small id="error">Mobile cannot be left blank</small>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Current location</td>
+                            <td fresherFormGroup="location" >
+                                <select>
+                                    <option value="">Ahmedabad</option>
+                                    <option value="">Banglore</option>
+                                    <option value="">Chennai</option>
+                                    <option value="">Delhi</option>
+                                </select>
+                                <div *ngIf="fresherFormGroup.controls.location.errors && fresherFormGroup.controls.location.touched">
+                                    <small id="error">location cannot be left blank</small>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>   
+                            <td >Country</td>
+                            <td ><input type="text" placeholder="" formControlName="country">
+                                <div *ngIf="fresherFormGroup.controls.country.errors && fresherFormGroup.controls.country.touched">
+                                    <small id="error">Country cannot be left blank</small>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><Input type="text" placeholder="Enter your city name Here" formControlName="cityName">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td> <input type="checkbox"> <small>Outside India</small>
+                             </td>
+                        </tr>
+                        <tr>
+                            <td>Upload Resume</td>
+                            <td><button class="btn btn-secondary">Upload Resume</button> -Or- <a href=""><small>copy-paste your resume here</small></a> </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>
+                                <small>doc, docx, rtf, pdf - 2MB max <br>
+                                    Naukri preferred CV format - docx file</small>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="checkbox" formControlName="check"> <small>I agreed to the <a href="">Terms and Conditions</a> governing the use of Naukri.com <br>
+                                I have reviewed the default <a href="">Mailer & Communications settings.</a> </small>
+                                <div *ngIf="fresherFormGroup.controls.check.errors && fresherFormGroup.controls.check.touched">
+                                    <small id="error">Please agree to the terms and conditions to continue</small>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-primary" (click)="submit()">Register Now</button>
+            </div>
+        </form>
+    </div>
+    <p><a [routerLink]="['/login']">login</a></p>
+</body>
+<router-outlet></router-outlet>

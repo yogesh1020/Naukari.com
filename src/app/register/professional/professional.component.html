@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form [formGroup]="professionalFromGroup">
+            <div>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>Name</td>
+                        <td>
+                            <input type="text" placeholder="Enter Your full name" formControlName="name">
+                            <div *ngIf="professionalFromGroup.controls.name.errors && professionalFromGroup.controls.name.touched">
+                                <small id="error">Name cannot be left blank</small>
+                            </div>
+                        </td>
+                    </tr>
+                   
+                        <tr>
+                            <td>Email ID</td>
+                            <td><input type="text" placeholder="Enter Your active Email Id to recive relevant Jobs" formControlName="emailId">
+                            <div   *ngIf="professionalFromGroup.controls.emailId.errors && professionalFromGroup.controls.emailId.touched">
+                                <small id="error">Name cannot be left blank</small>
+                            </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Create Password</td>
+                            <td> <input type="text" placeholder=" Minimun 6 characters" formControlName="password">
+                            <div   *ngIf="professionalFromGroup.controls.password.errors && professionalFromGroup.controls.password.touched">
+                                <small id="error">Enter Valid Password</small>
+                            </div>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>Mobile number</td>
+                            <td><input type="text" placeholder="Where recruter can contact you" formControlName="mobile">
+                            <div   *ngIf="professionalFromGroup.controls.mobile.errors && professionalFromGroup.controls.mobile.touched">
+                                <small id="error"> Enetr Valid Mobile number Mobiel</small>
+                            </div>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>Total Work Experience</td>
+                            <td >
+                                <select formControlName="exoerience">
+                                    <option  hidden selected>Select</option>
+                                    <option >0</option>
+                                    <option >1</option>
+                                    <option >2</option>
+                                    <option >3</option>
+                                </select> <small>Years</small>
+                                <select formControlName="exoerience">
+                                    <option  hidden selected>Select</option>
+                                    <option >0</option>
+                                    <option >1</option>
+                                    <option >2</option>
+                                    <option >3</option>
+                                </select> <small>Months</small>
+
+                                <div   *ngIf="professionalFromGroup.controls.exoerience.errors && professionalFromGroup.controls.exoerience.touched">
+                                    <small id="error"> Exoerience is required</small>
+                                </div>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Upload Resume</td>
+                            <td><button class="btn btn-secondary">Upload Resume</button> -Or- <a href=""><small>copy-paste your resume here</small></a> </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>
+                                <small>doc, docx, rtf, pdf - 2MB max <br>
+                                    Naukri preferred CV format - docx file</small>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input formControlName="check" type="checkbox"> <small>I agreed to the <a href="">Terms and Conditions</a> governing the use of Naukri.com <br>
+                                I have reviewed the default <a href="">Mailer & Communications settings.</a> </small>
+                                <div   *ngIf="professionalFromGroup.controls.check.errors">
+                                    <small id="error"> Accept T&C</small>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-primary" (click)="submit()">Register Now</button>
+
+            </div>
+        </form>
+    </div>
+    <p><a [routerLink]="['/login']">login</a></p>
+</body>
+<router-outlet></router-outlet>
