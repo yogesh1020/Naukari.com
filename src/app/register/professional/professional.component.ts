@@ -13,7 +13,7 @@ export class ProfessionalComponent implements OnInit {
   ngOnInit(): void {
     this.professionalFromGroup = this.frombuilder.group({
       name:['',Validators.required],
-      emailId:['',Validators.required,Validators.email],
+      emailId:['',Validators.required,Validators.pattern(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/)],
       password:['',Validators.required],
       mobile:['',Validators.required,Validators.maxLength(10),Validators.minLength(10)],
       exoerience:['',Validators.required],

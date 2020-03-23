@@ -14,7 +14,7 @@ fresherFormGroup:FormGroup
   ngOnInit(): void {
     this.fresherFormGroup = this.formBuilder.group({
       name:['',Validators.required],
-      emailId:['', Validators.required, Validators.email ],
+      emailId:['', Validators.required, Validators.pattern(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/) ],
       password:['',Validators.minLength(6)],
       mobile:['',Validators.required],
       location:['',Validators.required],
@@ -26,17 +26,6 @@ fresherFormGroup:FormGroup
   submit(){
       this.router.navigateByUrl('education')
     }    
-}
-
-function email(email){
-  var re = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
-  if(!re.test(email)){
-    return false
-  }
-  else  {
-    return true
-  }
-
 }
 
 
