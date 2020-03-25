@@ -1,11 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TimerComponent } from './timer/timer.component';
 import { RouterModule } from '@angular/router';
-
+import { TimerComponent } from './timer/timer.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +13,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

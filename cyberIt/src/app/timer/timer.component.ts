@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit ,Input} from '@angular/core';
 
 @Component({
   selector: 'app-timer',
@@ -6,26 +6,38 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./timer.component.css']
 })
 export class TimerComponent implements OnInit {
-  @Input() time:number= null;
-  public conter:number = 0;
-
+  @Input() init:number=0;
+  public counter:number = 7200; 
+  constructor() { }
+  action:boolean = false;
   ngOnInit(): void {
-
+    
   }
-  start(){
-      if( this.time <= 7200){
-        this.conter=this.time;
-        this.count();
+
+  startCoundown(){
+    
+if(this.action==true){
+      this.doCountdown();
       }
-
+        
   }
-  count(){
+  endCountdown(){
+    
+  }
+  doCountdown(){
     setTimeout(() => {
-      this.conter = this.conter+1;
-      this.processCount();
+      this.counter = this.counter - 1; 
     }, 1000);
+    this.processCount()
   }
-processCount(){
-  console.log(this.conter)
-}
+  processCount(){
+    var totle = this.counter
+    console.log("count is" , this.counter)
+    if(this.counter==0){
+      console.log("counter End")
+    }
+    else{
+      this.doCountdown()
+    }
+  }
 }
